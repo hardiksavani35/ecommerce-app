@@ -15,7 +15,7 @@
               <router-link :to="{ name: 'products' }" class="nav-link text-secondary">Products</router-link>
             </li>
             <li> 
-              <router-link :to="{ name: 'cart' }" class="nav-link text-secondary">Cart</router-link>
+              <router-link :to="{ name: 'cart' }" class="nav-link text-secondary">Cart <b>[{{ this.$store.getters['cart/cart'] }}]</b></router-link>
             </li>
             <li> 
               <router-link :to="{ name: 'contact' }" class="nav-link text-secondary">Contact Us</router-link>
