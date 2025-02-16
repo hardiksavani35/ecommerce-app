@@ -10,6 +10,15 @@ export default {
         addToCart(state, { product, qty }) {
             state.cartItems.push({ ...product, total: product.price * qty, quantity: qty });
             state.cart++;
+        },
+        removeItem(state, id) {  
+            let index = state.cartItems.findIndex(item => item.id === id); 
+            if (index !== -1) { 
+                state.cartItems.splice(index, 1);
+                state.cart--; 
+            } else {
+                console.log('Item not found in cart!');
+            }
         }
     },
     actions: {
@@ -20,6 +29,9 @@ export default {
                 return true;
             }
             return false;
+        },
+        removeItem({ commit }, id) {
+            commit('removeItem', id); 
         }
     },
     getters: {

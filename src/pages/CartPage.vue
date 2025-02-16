@@ -22,7 +22,7 @@
                     <td>{{ item.quantity }}</td>
                     <td>${{ (item.price * item.quantity).toFixed(2) }}</td>
                     <td>
-                        <button class="btn btn-danger btn-sm">
+                        <button class="btn btn-danger btn-sm" @click="removeItem(item.id)">
                             <i class="bi bi-trash"></i> Remove
                         </button>
                     </td>
@@ -56,6 +56,9 @@ export default {
         updateQuantity(item) {
             this.$store.dispatch('cart/updateCartQuantity', item);
         }, 
+        removeItem(id) { 
+            this.$store.dispatch('cart/removeItem', id);
+        }
     }
 }
 </script>
