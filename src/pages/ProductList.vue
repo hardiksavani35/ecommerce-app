@@ -1,4 +1,5 @@
 <template>
+    <Loader :visible="loading" />
     <div>
         <!-- Page Header -->
         <div class="px-4 my-5 text-center border-bottom">
@@ -58,9 +59,13 @@
 </template>
 
 <script>
+import Loader from '../components/layout/LoaderComponent.vue';
+
 export default {
+    components: {Loader},
     data() {
         return {
+            //loading: true,
             selectedCategory: "",
             selectedPriceOrder: "" 
         }
